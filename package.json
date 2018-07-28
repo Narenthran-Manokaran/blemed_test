@@ -1,0 +1,16 @@
+{
+  "name": "blemed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Narenthran Manokaran",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^2.18.3"
+  }
+}
