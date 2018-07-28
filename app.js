@@ -23,7 +23,7 @@ client.on('connect', () => {
 
 client.on('message', (topic, message) => {
   const data = JSON.parse(message)
-  if (config.tempData.length === config.averageMeasurement) {
+  if (config.tempData.length > config.averageMeasurement) {
     const averageRssi = (config.tempData.reduce(utils.getSum) / config.averageMeasurement).toFixed(2)
     const averageData = {
       rssi: averageRssi,
