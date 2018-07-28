@@ -24,6 +24,7 @@ client.on('connect', () => {
 client.on('message', (topic, message) => {
   const data = JSON.parse(message)
   if (config.tempData.length > config.averageMeasurement) {
+    config.tempData.shift()
     const averageRssi = (config.tempData.reduce(utils.getSum) / config.averageMeasurement).toFixed(2)
     const averageData = {
       rssi: averageRssi,
@@ -35,7 +36,6 @@ client.on('message', (topic, message) => {
     } else {
       utils.appendFile(config.fileName, averageData)
     }
-    config.tempData.shift()
   }
   config.tempData.push(data.rssi)
   
